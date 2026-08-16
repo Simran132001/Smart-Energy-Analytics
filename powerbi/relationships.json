@@ -1,0 +1,81 @@
+{
+  "model": "Smart Energy Analytics star schema",
+  "fact_table": "powerbi_fact_consumption",
+  "relationships": [
+    {
+      "from": "powerbi_fact_consumption[date]",
+      "to": "dim_date[date_key]",
+      "cardinality": "many-to-one",
+      "cross_filter": "single",
+      "active": true
+    },
+    {
+      "from": "powerbi_fact_consumption[meter_id]",
+      "to": "dim_meter[meter_id]",
+      "cardinality": "many-to-one",
+      "cross_filter": "single",
+      "active": true
+    },
+    {
+      "from": "daily_consumption[date]",
+      "to": "dim_date[date_key]",
+      "cardinality": "many-to-one",
+      "cross_filter": "single",
+      "active": true
+    },
+    {
+      "from": "daily_consumption[meter_id]",
+      "to": "dim_meter[meter_id]",
+      "cardinality": "many-to-one",
+      "cross_filter": "single",
+      "active": true
+    },
+    {
+      "from": "meter_consumption[meter_id]",
+      "to": "dim_meter[meter_id]",
+      "cardinality": "one-to-one",
+      "cross_filter": "both",
+      "active": true
+    },
+    {
+      "from": "predictions[meter_id]",
+      "to": "dim_meter[meter_id]",
+      "cardinality": "many-to-one",
+      "cross_filter": "single",
+      "active": true
+    },
+    {
+      "from": "anomalies[meter_id]",
+      "to": "dim_meter[meter_id]",
+      "cardinality": "many-to-one",
+      "cross_filter": "single",
+      "active": true
+    },
+    {
+      "from": "peak_offpeak_consumption[date]",
+      "to": "dim_date[date_key]",
+      "cardinality": "many-to-one",
+      "cross_filter": "single",
+      "active": true
+    },
+    {
+      "from": "weather_energy[date]",
+      "to": "dim_date[date_key]",
+      "cardinality": "many-to-one",
+      "cross_filter": "single",
+      "active": true
+    },
+    {
+      "from": "monthly_consumption[meter_id]",
+      "to": "dim_meter[meter_id]",
+      "cardinality": "many-to-one",
+      "cross_filter": "single",
+      "active": true
+    }
+  ],
+  "notes": [
+    "Mark dim_date as the official Date table (Modeling > Mark as date table > date_key).",
+    "predictions[reading_ts] and anomalies[reading_ts] are timestamps: add a date column if you need a date relationship.",
+    "Hide the raw key columns on the fact table to keep the field list clean."
+  ]
+}

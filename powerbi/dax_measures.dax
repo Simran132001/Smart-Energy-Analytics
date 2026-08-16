@@ -1,0 +1,87 @@
+// Smart Energy Analytics - DAX measures
+// Paste each measure via Modeling > New measure.
+
+Total Energy Consumption =
+SUM ( powerbi_fact_consumption[total_consumption] )
+
+Average Consumption =
+AVERAGE ( powerbi_fact_consumption[avg_consumption] )
+
+Peak Consumption =
+MAX ( powerbi_fact_consumption[max_consumption] )
+
+Minimum Consumption =
+MIN ( powerbi_fact_consumption[min_consumption] )
+
+Meter Count =
+DISTINCTCOUNT ( powerbi_fact_consumption[meter_id] )
+
+Total Readings =
+SUM ( powerbi_fact_consumption[reading_count] )
+
+Total Anomalies =
+CALCULATE (
+    COUNTROWS ( powerbi_fact_consumption ),
+    powerbi_fact_consumption[anomaly_flag] = 1
+)
+
+Anomaly Rate % =
+DIVIDE ( [Total Anomalies], COUNTROWS ( powerbi_fact_consumption ), 0 ) * 100
+
+High Severity Anomalies =
+CALCULATE ( [Total Anomalies], powerbi_fact_consumption[anomaly_severity] = "high" )
+
+Peak Consumption Share % =
+DIVIDE (
+    CALCULATE ( [Total Energy Consumption], powerbi_fact_consumption[peak_hour_flag] = 1 ),
+    [Total Energy Consumption],
+    0
+) * 100
+
+Weekend Consumption =
+CALCULATE ( [Total Energy Consumption], powerbi_fact_consumption[weekend_flag] = 1 )
+
+Weekday Consumption =
+CALCULATE ( [Total Energy Consumption], powerbi_fact_consumption[weekend_flag] = 0 )
+
+Predicted Consumption =
+SUM ( powerbi_fact_consumption[predicted_consumption] )
+
+Actual vs Predicted Delta =
+[Total Energy Consumption] - [Predicted Consumption]
+
+Prediction MAE =
+AVERAGEX (
+    FILTER ( predictions, NOT ISBLANK ( predictions[prediction_error] ) ),
+    ABS ( predictions[prediction_error] )
+)
+
+Prediction RMSE =
+SQRT (
+    AVERAGEX (
+        FILTER ( predictions, NOT ISBLANK ( predictions[prediction_error] ) ),
+        predictions[prediction_error] ^ 2
+    )
+)
+
+Prediction MAPE % =
+AVERAGE ( predictions[abs_percentage_error] )
+
+Consumption MoM % =
+VAR CurrentMonth = [Total Energy Consumption]
+VAR PreviousMonth =
+    CALCULATE ( [Total Energy Consumption], DATEADD ( dim_date[date_key], -1, MONTH ) )
+RETURN
+    DIVIDE ( CurrentMonth - PreviousMonth, PreviousMonth, 0 ) * 100
+
+Rolling 7D Consumption =
+CALCULATE (
+    [Total Energy Consumption],
+    DATESINPERIOD ( dim_date[date_key], MAX ( dim_date[date_key] ), -7, DAY )
+)
+
+Average Temperature =
+AVERAGE ( powerbi_fact_consumption[temperature] )
+
+Average Humidity =
+AVERAGE ( powerbi_fact_consumption[humidity] )

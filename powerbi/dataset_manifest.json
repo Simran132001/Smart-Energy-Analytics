@@ -1,0 +1,253 @@
+{
+  "gold_dir": "/home/ubuntu/repos/Smart-Energy-Analytics/data/gold",
+  "datasets": {
+    "powerbi_fact_consumption": {
+      "rows": 104832,
+      "columns": {
+        "date": "datetime64[ns]",
+        "hour": "int32",
+        "meter_id": "object",
+        "total_consumption": "float64",
+        "avg_consumption": "float64",
+        "max_consumption": "float64",
+        "min_consumption": "float64",
+        "reading_count": "int64",
+        "avg_temperature": "float64",
+        "peak_hour_flag": "int32",
+        "temperature": "float64",
+        "humidity": "float64",
+        "weather_condition": "object",
+        "temperature_band": "object",
+        "season": "object",
+        "weekend_flag": "int32",
+        "day_of_week": "int32",
+        "predicted_consumption": "float64",
+        "prediction_error": "float64",
+        "abs_percentage_error": "float64",
+        "model_name": "object",
+        "anomaly_flag": "int64",
+        "anomaly_type": "object",
+        "anomaly_score": "float64",
+        "anomaly_severity": "object"
+      },
+      "duplicate_rows": 0,
+      "null_columns": {
+        "predicted_consumption": 83923,
+        "prediction_error": 83923,
+        "abs_percentage_error": 83923,
+        "model_name": 83923,
+        "anomaly_score": 102660
+      },
+      "parquet": "/home/ubuntu/repos/Smart-Energy-Analytics/data/gold/powerbi_fact_consumption.parquet",
+      "csv": "/home/ubuntu/repos/Smart-Energy-Analytics/data/gold/powerbi_fact_consumption.csv"
+    },
+    "energy_summary": {
+      "rows": 1,
+      "columns": {
+        "total_consumption": "float64",
+        "avg_consumption": "float64",
+        "peak_consumption": "float64",
+        "min_consumption": "float64",
+        "meter_count": "int64",
+        "reading_count": "int64",
+        "period_start": "datetime64[ns]",
+        "period_end": "datetime64[ns]"
+      },
+      "duplicate_rows": 0,
+      "null_columns": {},
+      "parquet": "/home/ubuntu/repos/Smart-Energy-Analytics/data/gold/energy_summary.parquet",
+      "csv": "/home/ubuntu/repos/Smart-Energy-Analytics/data/gold/energy_summary.csv"
+    },
+    "dim_date": {
+      "rows": 364,
+      "columns": {
+        "date": "object",
+        "year": "int32",
+        "month": "int32",
+        "day": "int32",
+        "day_of_week": "int32",
+        "weekend_flag": "int32",
+        "season": "object",
+        "month_name": "object",
+        "day_name": "object",
+        "quarter": "int32"
+      },
+      "duplicate_rows": 0,
+      "null_columns": {},
+      "parquet": "/home/ubuntu/repos/Smart-Energy-Analytics/data/gold/dim_date.parquet",
+      "csv": "/home/ubuntu/repos/Smart-Energy-Analytics/data/gold/dim_date.csv"
+    },
+    "dim_meter": {
+      "rows": 12,
+      "columns": {
+        "meter_id": "object",
+        "meter_type": "object",
+        "region": "object",
+        "installation_date": "object",
+        "rated_voltage": "float64",
+        "base_load_kwh": "float64",
+        "avg_consumption": "float64",
+        "total_consumption": "float64"
+      },
+      "duplicate_rows": 0,
+      "null_columns": {},
+      "parquet": "/home/ubuntu/repos/Smart-Energy-Analytics/data/gold/dim_meter.parquet",
+      "csv": "/home/ubuntu/repos/Smart-Energy-Analytics/data/gold/dim_meter.csv"
+    },
+    "daily_consumption": {
+      "rows": 4368,
+      "columns": {
+        "date": "object",
+        "meter_id": "object",
+        "total_consumption": "float64",
+        "avg_consumption": "float64",
+        "max_consumption": "float64",
+        "min_consumption": "float64",
+        "reading_count": "int64",
+        "avg_temperature": "float64",
+        "weekend_flag": "int32",
+        "season": "object"
+      },
+      "duplicate_rows": 0,
+      "null_columns": {},
+      "parquet": "/home/ubuntu/repos/Smart-Energy-Analytics/data/gold/daily_consumption.parquet",
+      "csv": "/home/ubuntu/repos/Smart-Energy-Analytics/data/gold/daily_consumption.csv"
+    },
+    "weekly_consumption": {
+      "rows": 624,
+      "columns": {
+        "year": "int32",
+        "week_of_year": "int32",
+        "meter_id": "object",
+        "total_consumption": "float64",
+        "avg_consumption": "float64",
+        "reading_count": "int64"
+      },
+      "duplicate_rows": 0,
+      "null_columns": {},
+      "parquet": "/home/ubuntu/repos/Smart-Energy-Analytics/data/gold/weekly_consumption.parquet",
+      "csv": "/home/ubuntu/repos/Smart-Energy-Analytics/data/gold/weekly_consumption.csv"
+    },
+    "monthly_consumption": {
+      "rows": 144,
+      "columns": {
+        "year": "int32",
+        "month": "int32",
+        "meter_id": "object",
+        "total_consumption": "float64",
+        "avg_consumption": "float64",
+        "max_consumption": "float64",
+        "min_consumption": "float64",
+        "reading_count": "int64"
+      },
+      "duplicate_rows": 0,
+      "null_columns": {},
+      "parquet": "/home/ubuntu/repos/Smart-Energy-Analytics/data/gold/monthly_consumption.parquet",
+      "csv": "/home/ubuntu/repos/Smart-Energy-Analytics/data/gold/monthly_consumption.csv"
+    },
+    "hourly_consumption": {
+      "rows": 104832,
+      "columns": {
+        "date": "object",
+        "hour": "int32",
+        "meter_id": "object",
+        "total_consumption": "float64",
+        "avg_consumption": "float64",
+        "max_consumption": "float64",
+        "min_consumption": "float64",
+        "reading_count": "int64",
+        "avg_temperature": "float64",
+        "peak_hour_flag": "int32"
+      },
+      "duplicate_rows": 0,
+      "null_columns": {},
+      "parquet": "/home/ubuntu/repos/Smart-Energy-Analytics/data/gold/hourly_consumption.parquet",
+      "csv": "/home/ubuntu/repos/Smart-Energy-Analytics/data/gold/hourly_consumption.csv"
+    },
+    "meter_consumption": {
+      "rows": 12,
+      "columns": {
+        "meter_id": "object",
+        "meter_type": "object",
+        "region": "object",
+        "total_consumption": "float64",
+        "avg_consumption": "float64",
+        "max_consumption": "float64",
+        "min_consumption": "float64",
+        "stddev_consumption": "float64",
+        "reading_count": "int64",
+        "consumption_rank": "int32"
+      },
+      "duplicate_rows": 0,
+      "null_columns": {},
+      "parquet": "/home/ubuntu/repos/Smart-Energy-Analytics/data/gold/meter_consumption.parquet",
+      "csv": "/home/ubuntu/repos/Smart-Energy-Analytics/data/gold/meter_consumption.csv"
+    },
+    "peak_offpeak_consumption": {
+      "rows": 728,
+      "columns": {
+        "date": "object",
+        "tariff_period": "object",
+        "total_consumption": "float64",
+        "avg_consumption": "float64",
+        "reading_count": "int64"
+      },
+      "duplicate_rows": 0,
+      "null_columns": {},
+      "parquet": "/home/ubuntu/repos/Smart-Energy-Analytics/data/gold/peak_offpeak_consumption.parquet",
+      "csv": "/home/ubuntu/repos/Smart-Energy-Analytics/data/gold/peak_offpeak_consumption.csv"
+    },
+    "weather_energy": {
+      "rows": 3296,
+      "columns": {
+        "date": "object",
+        "weather_condition": "object",
+        "temperature_band": "object",
+        "avg_temperature": "float64",
+        "avg_humidity": "float64",
+        "total_consumption": "float64",
+        "avg_consumption": "float64",
+        "reading_count": "int64"
+      },
+      "duplicate_rows": 0,
+      "null_columns": {},
+      "parquet": "/home/ubuntu/repos/Smart-Energy-Analytics/data/gold/weather_energy.parquet",
+      "csv": "/home/ubuntu/repos/Smart-Energy-Analytics/data/gold/weather_energy.csv"
+    },
+    "predictions": {
+      "rows": 20909,
+      "columns": {
+        "timestamp": "datetime64[ns]",
+        "meter_id": "object",
+        "actual_consumption": "float64",
+        "predicted_consumption": "float64",
+        "prediction_error": "float64",
+        "abs_percentage_error": "float64",
+        "model_name": "object",
+        "model_version": "object"
+      },
+      "duplicate_rows": 0,
+      "null_columns": {},
+      "parquet": "/home/ubuntu/repos/Smart-Energy-Analytics/data/gold/predictions.parquet",
+      "csv": "/home/ubuntu/repos/Smart-Energy-Analytics/data/gold/predictions.csv"
+    },
+    "anomalies": {
+      "rows": 2255,
+      "columns": {
+        "timestamp": "datetime64[ns]",
+        "meter_id": "object",
+        "energy_consumption": "float64",
+        "anomaly_score": "float64",
+        "anomaly_flag": "int64",
+        "anomaly_type": "object",
+        "detection_method": "object",
+        "anomaly_severity": "object"
+      },
+      "duplicate_rows": 0,
+      "null_columns": {},
+      "parquet": "/home/ubuntu/repos/Smart-Energy-Analytics/data/gold/anomalies.parquet",
+      "csv": "/home/ubuntu/repos/Smart-Energy-Analytics/data/gold/anomalies.csv"
+    }
+  },
+  "missing": []
+}

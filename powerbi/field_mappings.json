@@ -1,0 +1,54 @@
+{
+  "kpi_cards": {
+    "Total Energy Consumption": "powerbi_fact_consumption[total_consumption] -> [Total Energy Consumption]",
+    "Average Consumption": "powerbi_fact_consumption[avg_consumption] -> [Average Consumption]",
+    "Peak Consumption": "powerbi_fact_consumption[max_consumption] -> [Peak Consumption]",
+    "Minimum Consumption": "powerbi_fact_consumption[min_consumption] -> [Minimum Consumption]",
+    "Number of Meters": "powerbi_fact_consumption[meter_id] -> [Meter Count]",
+    "Total Anomalies": "powerbi_fact_consumption[anomaly_flag] -> [Total Anomalies]"
+  },
+  "time_analysis": {
+    "date": "dim_date[date_key]",
+    "year": "dim_date[year]",
+    "month": "dim_date[month] / dim_date[month_name]",
+    "day": "dim_date[day]",
+    "hour": "powerbi_fact_consumption[hour]",
+    "day_of_week": "dim_date[day_name]",
+    "weekend": "dim_date[Is Weekend]",
+    "season": "dim_date[season]",
+    "peak_offpeak": "powerbi_fact_consumption[Tariff Period]"
+  },
+  "meter_analysis": {
+    "meter_id": "dim_meter[meter_id]",
+    "meter_type": "dim_meter[meter_type]",
+    "region": "dim_meter[region]",
+    "meter_consumption": "meter_consumption[total_consumption]",
+    "meter_ranking": "meter_consumption[consumption_rank]",
+    "meter_statistics": "meter_consumption[avg_consumption], [max_consumption], [min_consumption], [stddev_consumption]"
+  },
+  "prediction": {
+    "timestamp": "predictions[reading_ts]",
+    "meter_id": "predictions[meter_id]",
+    "actual": "predictions[actual_consumption]",
+    "predicted": "predictions[predicted_consumption]",
+    "error": "predictions[prediction_error]",
+    "percentage_error": "predictions[abs_percentage_error]",
+    "model": "predictions[model_name] + predictions[model_version]"
+  },
+  "anomaly": {
+    "timestamp": "anomalies[reading_ts]",
+    "meter_id": "anomalies[meter_id]",
+    "consumption": "anomalies[energy_consumption]",
+    "flag": "anomalies[anomaly_flag]",
+    "type": "anomalies[anomaly_type]",
+    "score": "anomalies[anomaly_score]",
+    "severity": "anomalies[anomaly_severity]"
+  },
+  "weather": {
+    "temperature": "powerbi_fact_consumption[temperature]",
+    "humidity": "powerbi_fact_consumption[humidity]",
+    "condition": "powerbi_fact_consumption[weather_condition]",
+    "band": "powerbi_fact_consumption[temperature_band]",
+    "consumption": "powerbi_fact_consumption[total_consumption]"
+  }
+}

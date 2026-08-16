@@ -1,0 +1,28 @@
+// Calculated columns - create in Table view
+
+// dim_date
+Month Year = FORMAT ( dim_date[date_key], "MMM yyyy" )
+Is Weekend = IF ( dim_date[weekend_flag] = 1, "Weekend", "Weekday" )
+
+// powerbi_fact_consumption
+Tariff Period = IF ( powerbi_fact_consumption[peak_hour_flag] = 1, "Peak", "Off-Peak" )
+Hour Label = FORMAT ( powerbi_fact_consumption[hour], "00" ) & ":00"
+Consumption Band =
+SWITCH (
+    TRUE (),
+    powerbi_fact_consumption[total_consumption] < 2, "Low",
+    powerbi_fact_consumption[total_consumption] < 6, "Medium",
+    powerbi_fact_consumption[total_consumption] < 12, "High",
+    "Very High"
+)
+Anomaly Label =
+SWITCH (
+    powerbi_fact_consumption[anomaly_severity],
+    "high", "High severity",
+    "medium", "Medium severity",
+    "low", "Low severity",
+    "Normal"
+)
+
+// predictions
+Absolute Error = ABS ( predictions[prediction_error] )

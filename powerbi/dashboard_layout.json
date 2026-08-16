@@ -1,0 +1,62 @@
+{
+  "report_name": "Smart Energy Analytics",
+  "theme": {"accent": "#1F77B4", "anomaly": "#D62728", "prediction": "#FF7F0E"},
+  "pages": [
+    {
+      "page": 1,
+      "name": "Executive Overview",
+      "visuals": [
+        {"type": "card", "title": "Total Energy Consumption", "measure": "Total Energy Consumption", "position": {"x": 0, "y": 0, "w": 3, "h": 2}},
+        {"type": "card", "title": "Average Consumption", "measure": "Average Consumption", "position": {"x": 3, "y": 0, "w": 3, "h": 2}},
+        {"type": "card", "title": "Peak Consumption", "measure": "Peak Consumption", "position": {"x": 6, "y": 0, "w": 3, "h": 2}},
+        {"type": "card", "title": "Number of Meters", "measure": "Meter Count", "position": {"x": 9, "y": 0, "w": 3, "h": 2}},
+        {"type": "card", "title": "Total Anomalies", "measure": "Total Anomalies", "position": {"x": 12, "y": 0, "w": 3, "h": 2}},
+        {"type": "line_chart", "title": "Consumption Trend", "axis": "dim_date[date_key]", "values": ["Total Energy Consumption"], "position": {"x": 0, "y": 2, "w": 10, "h": 5}},
+        {"type": "donut_chart", "title": "Peak vs Off-Peak", "legend": "powerbi_fact_consumption[Tariff Period]", "values": ["Total Energy Consumption"], "position": {"x": 10, "y": 2, "w": 5, "h": 5}},
+        {"type": "slicer", "field": "dim_date[date_key]", "mode": "between", "position": {"x": 0, "y": 7, "w": 5, "h": 1}},
+        {"type": "slicer", "field": "dim_meter[meter_id]", "mode": "dropdown", "position": {"x": 5, "y": 7, "w": 5, "h": 1}}
+      ]
+    },
+    {
+      "page": 2,
+      "name": "Consumption Analysis",
+      "visuals": [
+        {"type": "line_chart", "title": "Daily Consumption Trend", "axis": "dim_date[date_key]", "values": ["Total Energy Consumption", "Rolling 7D Consumption"], "position": {"x": 0, "y": 0, "w": 8, "h": 4}},
+        {"type": "column_chart", "title": "Monthly Consumption Trend", "axis": "dim_date[Month Year]", "values": ["Total Energy Consumption"], "position": {"x": 8, "y": 0, "w": 7, "h": 4}},
+        {"type": "line_chart", "title": "Hourly Consumption Pattern", "axis": "powerbi_fact_consumption[hour]", "values": ["Average Consumption"], "position": {"x": 0, "y": 4, "w": 5, "h": 4}},
+        {"type": "bar_chart", "title": "Peak vs Off-Peak", "axis": "powerbi_fact_consumption[Tariff Period]", "values": ["Total Energy Consumption", "Peak Consumption Share %"], "position": {"x": 5, "y": 4, "w": 5, "h": 4}},
+        {"type": "bar_chart", "title": "Weekday vs Weekend", "axis": "dim_date[Is Weekend]", "values": ["Weekday Consumption", "Weekend Consumption"], "position": {"x": 10, "y": 4, "w": 5, "h": 4}},
+        {"type": "column_chart", "title": "Seasonal Consumption", "axis": "powerbi_fact_consumption[season]", "values": ["Total Energy Consumption"], "position": {"x": 0, "y": 8, "w": 8, "h": 4}},
+        {"type": "scatter_chart", "title": "Temperature vs Consumption", "x": "Average Temperature", "y": "Average Consumption", "details": "powerbi_fact_consumption[temperature_band]", "position": {"x": 8, "y": 8, "w": 7, "h": 4}}
+      ]
+    },
+    {
+      "page": 3,
+      "name": "Meter Analysis",
+      "visuals": [
+        {"type": "table", "title": "Meter Ranking", "columns": ["meter_consumption[consumption_rank]", "meter_consumption[meter_id]", "meter_consumption[meter_type]", "meter_consumption[region]", "meter_consumption[total_consumption]", "meter_consumption[avg_consumption]"], "position": {"x": 0, "y": 0, "w": 8, "h": 6}},
+        {"type": "bar_chart", "title": "Top 5 Consuming Meters", "axis": "dim_meter[meter_id]", "values": ["Total Energy Consumption"], "filter": "Top N = 5 by Total Energy Consumption", "position": {"x": 8, "y": 0, "w": 7, "h": 6}},
+        {"type": "line_chart", "title": "Meter-wise Trends", "axis": "dim_date[date_key]", "values": ["Total Energy Consumption"], "legend": "dim_meter[meter_id]", "position": {"x": 0, "y": 6, "w": 10, "h": 5}},
+        {"type": "matrix", "title": "Meter Comparison by Season", "rows": "dim_meter[meter_id]", "columns": "powerbi_fact_consumption[season]", "values": ["Total Energy Consumption"], "position": {"x": 10, "y": 6, "w": 5, "h": 5}},
+        {"type": "slicer", "field": "dim_meter[meter_type]", "position": {"x": 0, "y": 11, "w": 5, "h": 1}},
+        {"type": "drill_down", "path": ["dim_meter[region]", "dim_meter[meter_type]", "dim_meter[meter_id]"]}
+      ]
+    },
+    {
+      "page": 4,
+      "name": "Prediction & Anomaly Analysis",
+      "visuals": [
+        {"type": "line_chart", "title": "Actual vs Predicted Consumption", "axis": "predictions[reading_ts]", "values": ["Total Energy Consumption", "Predicted Consumption"], "position": {"x": 0, "y": 0, "w": 9, "h": 5}},
+        {"type": "card", "title": "Prediction MAE", "measure": "Prediction MAE", "position": {"x": 9, "y": 0, "w": 2, "h": 2}},
+        {"type": "card", "title": "Prediction RMSE", "measure": "Prediction RMSE", "position": {"x": 11, "y": 0, "w": 2, "h": 2}},
+        {"type": "card", "title": "Prediction MAPE %", "measure": "Prediction MAPE %", "position": {"x": 13, "y": 0, "w": 2, "h": 2}},
+        {"type": "card", "title": "Anomaly Rate %", "measure": "Anomaly Rate %", "position": {"x": 9, "y": 2, "w": 3, "h": 2}},
+        {"type": "card", "title": "High Severity Anomalies", "measure": "High Severity Anomalies", "position": {"x": 12, "y": 2, "w": 3, "h": 2}},
+        {"type": "column_chart", "title": "Anomaly Count by Type", "axis": "anomalies[anomaly_type]", "values": ["Total Anomalies"], "position": {"x": 0, "y": 5, "w": 5, "h": 4}},
+        {"type": "line_chart", "title": "Anomaly Timeline", "axis": "anomalies[reading_ts]", "values": ["Total Anomalies"], "position": {"x": 5, "y": 5, "w": 10, "h": 4}},
+        {"type": "table", "title": "High-Consumption Periods", "columns": ["powerbi_fact_consumption[date]", "powerbi_fact_consumption[Hour Label]", "powerbi_fact_consumption[meter_id]", "powerbi_fact_consumption[total_consumption]", "powerbi_fact_consumption[Anomaly Label]"], "sort": "total_consumption desc", "position": {"x": 0, "y": 9, "w": 15, "h": 4}},
+        {"type": "slicer", "field": "powerbi_fact_consumption[anomaly_severity]", "position": {"x": 0, "y": 13, "w": 4, "h": 1}}
+      ]
+    }
+  ]
+}

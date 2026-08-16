@@ -26,6 +26,7 @@ derby.log
 
 # Logs
 logs/*.log
+logs/*.json
 
 # OS
 .DS_Store
