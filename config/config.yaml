@@ -1,0 +1,60 @@
+project:
+  name: smart-energy-analytics
+  version: 1.0.0
+
+paths:
+  data_root: data
+  raw: data/raw
+  bronze: data/bronze
+  silver: data/silver
+  gold: data/gold
+  models: models
+  logs: logs
+
+hdfs:
+  base: /smart_energy
+  raw: /smart_energy/raw
+  bronze: /smart_energy/bronze
+  silver: /smart_energy/silver
+  gold: /smart_energy/gold
+
+hive:
+  database: smart_energy
+  warehouse: /user/hive/warehouse
+
+spark:
+  app_name: SmartEnergyAnalytics
+  master: local[*]
+  shuffle_partitions: 8
+
+data_generation:
+  n_meters: 12
+  start_date: "2023-01-01"
+  end_date: "2023-12-31"
+  freq_minutes: 60
+  anomaly_rate: 0.012
+  seed: 42
+
+quality:
+  min_energy: 0.0
+  max_energy: 100.0
+  min_voltage: 180.0
+  max_voltage: 270.0
+  min_current: 0.0
+  max_current: 100.0
+  min_power_factor: 0.5
+  max_power_factor: 1.0
+
+ml:
+  target: energy_consumption
+  test_size: 0.2
+  random_state: 42
+  lags: [1, 2, 3, 24]
+  rolling_windows: [3, 24]
+
+anomaly:
+  zscore_threshold: 3.0
+  contamination: 0.01
+
+postgres:
+  schema: energy

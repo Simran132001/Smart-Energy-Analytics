@@ -1,0 +1,13 @@
+meter_id,meter_type,region,total_consumption,avg_consumption,max_consumption,min_consumption,stddev_consumption,reading_count,consumption_rank
+MTR-009,industrial,North,76897.7098,8.8024,62.2235,0.147,4.5462,8736,1
+MTR-006,industrial,South,62469.8971,7.1509,58.6522,0.1887,3.7706,8736,2
+MTR-003,industrial,East,61414.8607,7.0301,51.1385,0.2048,3.588,8736,3
+MTR-012,industrial,West,60835.5439,6.9638,76.4917,0.0781,3.6521,8736,4
+MTR-008,commercial,West,41915.3219,4.798,40.9313,0.1298,2.5047,8736,5
+MTR-002,commercial,South,41117.5743,4.7067,38.5679,0.1093,2.4361,8736,6
+MTR-005,commercial,North,40260.3387,4.6086,35.1242,0.07,2.3804,8736,7
+MTR-011,commercial,East,37780.4981,4.3247,36.6232,0.0725,2.2677,8736,8
+MTR-004,residential,West,18357.9621,2.1014,16.6151,0.0621,1.0316,8736,9
+MTR-001,residential,North,15751.4615,1.8031,15.2645,0.0991,0.8969,8736,10
+MTR-010,residential,South,15673.6057,1.7941,12.5119,0.082,0.8583,8736,11
+MTR-007,residential,East,15410.0878,1.764,13.0894,0.0276,0.8634,8736,12

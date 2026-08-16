@@ -1,0 +1,13 @@
+meter_id,meter_type,region,installation_date,rated_voltage,base_load_kwh,avg_consumption,total_consumption
+MTR-001,residential,North,2018-05-14,230.0,1.374,1.8031,15751.4615
+MTR-002,commercial,South,2021-03-06,230.0,3.987,4.7067,41117.5743
+MTR-003,industrial,East,2018-05-09,230.0,5.972,7.0301,61414.8607
+MTR-004,residential,West,2020-11-12,230.0,1.6,2.1014,18357.9621
+MTR-005,commercial,North,2021-01-08,230.0,3.909,4.6086,40260.3387
+MTR-006,industrial,South,2021-02-15,230.0,6.041,7.1509,62469.8971
+MTR-007,residential,East,2021-06-13,230.0,1.346,1.764,15410.0878
+MTR-008,commercial,West,2019-11-07,230.0,4.061,4.798,41915.3219
+MTR-009,industrial,North,2021-03-18,230.0,7.458,8.8024,76897.7098
+MTR-010,residential,South,2020-08-23,230.0,1.376,1.7941,15673.6057
+MTR-011,commercial,East,2019-11-07,230.0,3.659,4.3247,37780.4981
+MTR-012,industrial,West,2018-12-07,230.0,5.91,6.9638,60835.5439
