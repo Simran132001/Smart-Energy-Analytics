@@ -1,0 +1,28 @@
+{
+  "best_model": "LinearRegression",
+  "model_version": "1.0.0",
+  "trained_at": "2026-08-16T14:43:19.729723",
+  "train_rows": 83635,
+  "test_rows": 20909,
+  "feature_count": 38,
+  "results": {
+    "LinearRegression": {
+      "mae": 0.24602,
+      "mse": 1.41988,
+      "rmse": 1.19159,
+      "r2": 0.87579
+    },
+    "RandomForest": {
+      "mae": 0.26094,
+      "mse": 1.59051,
+      "rmse": 1.26116,
+      "r2": 0.86086
+    },
+    "GradientBoosting": {
+      "mae": 0.27013,
+      "mse": 1.54419,
+      "rmse": 1.24265,
+      "r2": 0.86491
+    }
+  }
+}

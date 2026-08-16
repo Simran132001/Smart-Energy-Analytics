@@ -32,3 +32,5 @@ logs/*.log
 data/hdfs_mirror/
 data/gold/hive/
 data/gold/ml_features.csv
+models/*.joblib
+models/holdout_predictions.parquet
