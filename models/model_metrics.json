@@ -1,7 +1,7 @@
 {
   "best_model": "LinearRegression",
   "model_version": "1.0.0",
-  "trained_at": "2026-08-16T14:43:19.729723",
+  "trained_at": "2026-08-16T14:54:52.109718",
   "train_rows": 83635,
   "test_rows": 20909,
   "feature_count": 38,
@@ -13,16 +13,16 @@
       "r2": 0.87579
     },
     "RandomForest": {
-      "mae": 0.26094,
-      "mse": 1.59051,
-      "rmse": 1.26116,
-      "r2": 0.86086
+      "mae": 0.26047,
+      "mse": 1.58931,
+      "rmse": 1.26068,
+      "r2": 0.86097
     },
     "GradientBoosting": {
-      "mae": 0.27013,
-      "mse": 1.54419,
-      "rmse": 1.24265,
-      "r2": 0.86491
+      "mae": 0.27039,
+      "mse": 1.54477,
+      "rmse": 1.24289,
+      "r2": 0.86486
     }
   }
 }
