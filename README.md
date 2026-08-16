@@ -74,7 +74,7 @@ docker compose · pytest · Power BI (DAX / Power Query M) · Git & GitHub.
 config/       config.yaml — paths, spark, hive, quality thresholds, ML and anomaly settings
 data/         raw/ bronze/ silver/ gold/ + hdfs_mirror/ (local HDFS fallback)
 docker/       Docker usage notes
-docs/         architecture, database, api, ml, powerbi, deployment, github, cdac guides
+docs/         architecture, database, api, ml, powerbi, deployment and github guides
 logs/         rotating application log output
 models/       best_model.joblib + model_metrics.json (artifacts are git-ignored)
 notebooks/    databricks_pipeline.py — Databricks-runnable end-to-end pipeline
