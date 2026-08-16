@@ -35,3 +35,4 @@ data/gold/hive/
 data/gold/ml_features.csv
 models/*.joblib
 models/holdout_predictions.parquet
+docs/cdac_interview.md
